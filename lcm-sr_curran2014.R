@@ -9,7 +9,7 @@
 #
  
 # read in the data
-lcmsr.sim <- read.table("currandemo.dat", col.names = c("id", "gen", "trt", paste0("alc", 1:5), paste0("dep", 1:5)))
+lcmsr.sim <- read.table("data/currandemo.dat", col.names = c("id", "gen", "trt", paste0("alc", 1:5), paste0("dep", 1:5)))
 
 # load necessary libraries
 # install.packages("lavaan") # install lavaan if you haven't.
