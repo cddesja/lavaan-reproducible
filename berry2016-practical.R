@@ -1,6 +1,12 @@
-## ALT with structured residuals example 
-# This is really the same thing as an LCM-SR model
-# From Berry & Willoughby (2016)
+# ------------------------
+# On the Practical Interpretability of Cross-Lagged Panel Models:
+# Rethinking a Developmental Workhorse
+#
+# Berry & Willoughby
+#
+# Child Development 2016
+# doi.org/10.1111/cdev.12660
+# ------------------------
 library(lavaan)
 MEANS <- c(1.73, 1.66, 1.61, 1.36, 0.28, 0.28, 0.28, 0.33)
 SDS <- c(0.62, 0.61, 0.59, 0.55, 0.18, 0.17, 0.18, 0.23)
@@ -16,6 +22,7 @@ LOWER <- '
 lansford.cor <- getCov(LOWER, names = c(paste0("spank", c(10:12, 15)), paste0("agg", c(10:12, 15))))
 lansford.cov <- (SDS %*% t(SDS)) * lansford.cor
 
+# Example 1
 altsr.mod <- '
 # random intercepts
 agg.i =~ 1*agg10 + 1*agg11 + 1*agg12 + 1*agg15

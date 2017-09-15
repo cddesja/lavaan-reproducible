@@ -1,9 +1,11 @@
-## ALT model formulations ----
-
-
-# Bollen & Curren (2004)
-# Example #1 - simulation using ALT model
-# based on covariance matrix reported in Rogosa & Willet (1985)
+# ------------------------------------------------
+# Autoregressive Latent Trajectory (ALT) Models A Synthesis of Two Traditions 
+#
+# Bollen & Curran
+#
+# Sociological Methods & Research 2004
+# doi.org/10.1177/0049124103260222
+# ------------------------------------------------
 library(lavaan)
 n <- 500
 lower <- '

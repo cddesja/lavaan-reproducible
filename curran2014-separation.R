@@ -1,12 +1,13 @@
-# This script ireplicate the Curran et al., (2014) models but using R 
-# instead of Mplus
+# ------------------------------------------------
+# The Separation of Between-Person and Within-Person Components
+# of Individual Change Over Time: A Latent Curve Model
+# With Structured Residuals
 #
-# Christopher Desjardins
+# Curran, Howard, Bainter, Lane, McGinley 
 # 
-# Please email: chrisd@ori.org
-# if you notice syntax errors or bugs
-#
-#
+# Journal of Consulting and Clinical Psychology 2014
+# doi.org/10.1037/a0035297
+# ------------------------------------------------
  
 # read in the data
 lcmsr.sim <- read.table("data/currandemo.dat", col.names = c("id", "gen", "trt", paste0("alc", 1:5), paste0("dep", 1:5)))
