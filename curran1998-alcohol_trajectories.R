@@ -63,54 +63,8 @@ alc2 ~~ alc2
 alc3 ~~ alc3
 alc4 ~~ alc4
 '
-#fit.1 <- lavaan(model.1, sample.mean = MEANS, sample.nobs = total.n, sample.cov =  alcuse.cov) # won't converge
-#summary(fit.1, fit.measures = T)
-
-model.1f <- '
-# ----------------
-# latent factors
-# ----------------
-# alcohol
-alc.i =~ 1*alc1 + 1*alc2 + 1*alc3 + 1*alc4
-alc.s =~ 0*alc1 + 1*alc2 + 1.54*alc3 + 2.46*alc4
-
-alc.i ~~ alc.s
-alc.i ~~ alc.i
-alc.s ~~ alc.s
-
-alc.i ~ 1
-alc.s ~ 1
-
-alc1 ~~ alc1
-alc2 ~~ alc2
-alc3 ~~ alc3
-alc4 ~~ alc4
-'
-fit.1f <- lavaan(model.1f, sample.mean = MEANS, sample.nobs = total.n, sample.cov =  alcuse.cov)
-summary(fit.1f, fit.measures = T, standardized = T)
-
-model.1l <- '
-# ----------------
-# latent factors
-# ----------------
-# alcohol
-alc.i =~ 1*alc1 + 1*alc2 + 1*alc3 + 1*alc4
-alc.s =~ 0*alc1 + 1*alc2 + 2*alc3 + 3*alc4
-
-alc.i ~~ alc.s
-alc.i ~~ alc.i
-alc.s ~~ alc.s
-
-alc.i ~ 1
-alc.s ~ 1
-
-alc1 ~~ alc1
-alc2 ~~ alc2
-alc3 ~~ alc3
-alc4 ~~ alc4
-'
-fit.1l <- lavaan(model.1l, sample.mean = MEANS, sample.nobs = total.n, sample.cov =  alcuse.cov)
-summary(fit.1l, standardized = T, fit.measures = T)
+fit.1 <- lavaan(model.1, sample.mean = MEANS, sample.nobs = total.n, sample.cov =  alcuse.cov, start = "simple") # won't converge
+summary(fit.1, fit.measures = T)
 
 model.2 <- '
 # ----------------
@@ -176,7 +130,7 @@ lmar2 ~ mar2
 lmar3 ~ mar3
 lmar4 ~ mar4
 
-# curran says no effect, these are significant
+# authors says no effect, these are significant here
 alc1 ~ lmar2
 alc2 ~ lmar3
 alc3 ~ lmar4
