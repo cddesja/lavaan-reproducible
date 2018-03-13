@@ -215,7 +215,9 @@ NegAFF3 ~~ NegAFF3
 method2c.fit <- lavaan(method2c.mod, sample.cov = cov.grades, sample.nobs = n.grades, sample.mean = mean.grades, group.equal = c("loadings", "intercepts"))
 summary(method2c.fit, standardized = TRUE)
 
-# Method 3: Effects-coding constraints
+# Method 3: Effects-coding constraints ----
+# - restricts the factor loadings to sum to the number of loadings per factor
+# - restricts the intercepts to sum to zero per factor
 method3.mod <- '
 # Measurement Model
 Pos =~ lp1*PosAFF1 + lp2*PosAFF2 + lp3*PosAFF3
