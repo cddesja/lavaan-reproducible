@@ -1,7 +1,6 @@
 # ------------------------------------------------
 # Assessing factorial invariance in ordered-categorical measures
 # 
-#
 # Millsap & Yun-Tein (2004)
 #
 # Multivariate Behavioral Research
