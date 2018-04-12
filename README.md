@@ -11,3 +11,4 @@ This repositories hosts `R` scripts to replicate the findings of published artic
 - Curren, Muthen, & Harford. (1998). _The Influence of changes in marital status on development trajectories of alcohol use in young adults_. Journal of Studies on Alcohol. See `curran1998-alcohol_trajectories.R` 
 - Little, Slegers, & Card. (2006). _A Non-arbitrary Method of Identifying and Scaling Latent Variables in SEM and MACS Models_. Structural Equation Modeling. See `little2006-scaling.R`
 - Millsap & Yun-Tein. (2004). _Assessing factorial invariance in ordered-categorical measures_. Multivariate Behavioral Research. See `millsap2004-FIorderedCategorical.R`.
+- Raykov, Dimitrov, Marcoulides, Li, & Menold. (2018). _Examining measurement invariance and differential item functioning with discrete latent construct indicators: A note on a multiple testing procedure_. Educational and Psychological Measurement. See `raykov2081-dichotomousMI.R`.

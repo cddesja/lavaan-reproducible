@@ -4,7 +4,7 @@
 #
 # Little, Slegers, & Card 
 #
-# Structural Equationg Modeling 2006
+# Structural Equation Modeling 2006
 # ------------------------------------------------
 
 library("lavaan")
