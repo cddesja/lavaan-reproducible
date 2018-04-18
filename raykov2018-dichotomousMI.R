@@ -50,8 +50,8 @@ gender.fit
 # Note, the model fits well for both groups, but(!) this is not the clearly not the
 # data used in the manuscript
 
-# step 2 - fit the configural model 
-configural.mod <- "
+# step 2 - fit the strong invariance model 
+strong.mod <- "
 group: 1
 math =~ lam1 * item.1 + lam2 * item.2 + lam3 * item.3 + lam4 * item.4 +
         lam5 * item.5 + lam6 * item.6 + lam7 * item.7 + lam8 * item.8 +
@@ -88,28 +88,28 @@ item.7 | tau7 * t1
 item.8 | tau8 * t1
 item.9 | tau9 * t1
 "
-configural.fit <- lavaan(configural.mod, data = masc.sub, 
+strong.fit <- lavaan(strong.mod, data = masc.sub, 
                               ordered = paste0("item.", 1:9), estimator = "WLSMV", group = "gender", parameterization = "theta")
-fitMeasures(configural.fit, c("chisq", "df", "rmsea"))
-summary(configural.fit, fit.measures = TRUE)
+fitMeasures(strong.fit, c("chisq", "df", "rmsea"))
+summary(strong.fit, fit.measures = TRUE)
 
 # step 3 - test invariance of all the parameters
 params.to.test <- paste0(rep(c("lam", "tau"), each = 9), 1:9)
 param.matrix <- NULL
 
 for(i in params.to.test){
-  tmp.mod <- gsub(paste(i, "\\* "), "", configural.mod)
+  tmp.mod <- gsub(paste(i, "\\* "), "", strong.mod)
   tmp.fit <- lavaan(tmp.mod, data = masc.sub, 
                     ordered = paste0("item.", 1:9), estimator = "WLSMV", group = "gender",
                     parameterization = "theta")
+  test.stat <- lavTestLRT(strong.fit, tmp.fit, method = "satorra.bentler.2001")
   param.matrix <- rbind(param.matrix,
-                         cbind(i, 
-                               anova(configural.fit, tmp.fit)$`Chisq diff`[2], 
-                               1, 
-                               1 - pchisq(anova(configural.fit, tmp.fit)$`Chisq diff`[2], 1)))
-  
+                        cbind(i, 
+                              test.stat$`Chisq diff`[2], 
+                              1, 
+                              test.stat$`Pr`[2]
+                        ))
 }
-
 params.mi <- data.frame(param.matrix)
 params.mi[, 2:4] <- lapply(params.mi[, 2:4], factorNumeric)
 
